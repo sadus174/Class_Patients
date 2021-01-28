@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp19", "WindowsFormsApp19\WindowsFormsApp19.csproj", "{AB938C05-25D3-4D4D-855B-574105C2B031}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class_Patients", "WindowsFormsApp19\Class_Patients.csproj", "{AB938C05-25D3-4D4D-855B-574105C2B031}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
