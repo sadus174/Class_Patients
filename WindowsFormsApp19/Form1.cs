@@ -88,7 +88,6 @@ namespace WindowsFormsApp19
         {
             //Инициализируем коллекцию экземпляров класса
             pat = new List<Patient>();
-
             // Получаем количество слов и букв за слово.
             int num_letters = 7;
             // Создаем массив букв, которые мы будем использовать.
@@ -128,7 +127,7 @@ namespace WindowsFormsApp19
                     word2 += letters[letter_num];
                 }
                 //Используя конструктор, вводим данные из textbox в поля экземплярра класса         
-                pat.Add(new Patient(word, word1, word2));
+                pat.Add(new Patient(word, word1, word2));               
                 //Метод вывода добавленного экземпляра класса в ListBox
                 pat[i].GetInfo(listBox1);
                 //Увеличиваем счётчик на единицу, что бы использовать данную переменную как индекс массива экземпляра классов.
