@@ -90,6 +90,13 @@ namespace WindowsFormsApp19
         //Генерация случайных экземпляров класса
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Отключение дополнительного функционала
+            textBox4.Visible = false;
+            textBox5.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            button4.Visible = false;
+            button3.Visible = false;
             //Инициализируем коллекцию экземпляров класса
             pat = new List<Patient>();
             // Получаем количество слов и букв за слово.
@@ -153,6 +160,31 @@ namespace WindowsFormsApp19
                 }
             }
 
+        }
+        
+        //Кнопка за отображения дополнительных заданий
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                textBox4.Visible = true;
+                textBox5.Visible = true;
+                label4.Visible = true;
+                label5.Visible = true;
+                button4.Visible = true;
+                button3.Visible = true;
+
+            }
+            else
+            {
+                textBox4.Visible = false;
+                textBox5.Visible = false;
+                label4.Visible = false;
+                label5.Visible = false;
+                button4.Visible = false;
+                button3.Visible = false;
+
+            }
         }
     }
 }
