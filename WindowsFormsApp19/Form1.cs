@@ -76,12 +76,16 @@ namespace WindowsFormsApp19
         //Вызов метода класса "Выписка"
         private void button3_Click(object sender, EventArgs e)
         {
+            //Jпределяем индекс строки выделенного элемента
             int id_select = listBox1.SelectedIndex;
-            MessageBox.Show(id_select.ToString());
+            //Выводим его
+            MessageBox.Show($"Индекс выделенной строки: {id_select}") ;
+            //Вызываем метод класса, который меняет поле "Дата выписки" подставляя в него значение из текстбокса
             pat[id_select].Vipis(textBox4.Text);
+            //Очищаем листбокс
             listBox1.Items.Clear();
+            //Вызываем метод его заполнения
             GetAllList(listBox1);
-
         }
         //Генерация случайных экземпляров класса
         private void Form1_Load(object sender, EventArgs e)
@@ -133,6 +137,8 @@ namespace WindowsFormsApp19
                 //Увеличиваем счётчик на единицу, что бы использовать данную переменную как индекс массива экземпляра классов.
                 i++;
             }
+
+            
         }
         //Поиск пациента
         private void button4_Click(object sender, EventArgs e)
