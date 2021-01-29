@@ -14,8 +14,8 @@ namespace WindowsFormsApp19
     {
         //Счётчик количества экземпляров класса
         int i = 0;
-        //Объявляем массив экземпляров классов
-        Patient[] plp = new Patient[10];
+        //Объявляем коллекции экземпляров классов
+        List<Patient> pat;
 
         public Form1()
         {
@@ -33,8 +33,6 @@ namespace WindowsFormsApp19
             // Конструкторы класса, принимающие значения  переменных из TextBox
             public Patient(string fn, string ln, string a) { fio = fn; dr = ln; palata = a; data_vipis = "Неопределена"; }
             public Patient(string fn, string ln, string a, string dt_v) { fio = fn; dr = ln; palata = a; data_vipis = ""; data_vipis = dt_v; }
-
-
 
             //Метод класса для вывода информации в listbox
             public void GetInfo(ListBox listbox1)
@@ -54,21 +52,20 @@ namespace WindowsFormsApp19
         {
             listBox1.Items.Clear();
             //Используя конструктор, вводим данные из textbox в поля экземплярра класса         
-            plp[i] = new Patient(textBox1.Text, textBox2.Text, textBox3.Text);
+            pat.Add(new Patient(textBox1.Text, textBox2.Text, textBox3.Text));
             //Метод вывода добавленного экземпляра класса в ListBox
-            plp[i].GetInfo(listBox1);
+            pat[i].GetInfo(listBox1);
             //Увеличиваем счётчик на единицу, что бы использовать данную переменную как индекс массива экземпляра классов.
             i++;
         }
-
         //Метод вывода всех экземпляров класса
         public void GetAllList(ListBox listBox1)
         {
             listBox1.Items.Clear();
 
-            for (int p = 0; p < i; p++)
+            for (int p = 0; p < pat.Count; p++)
             {
-                plp[p].GetInfo(listBox1);
+                pat[p].GetInfo(listBox1);
             }
         }
         //Вызов метода вывода всех экземпляров класса
@@ -81,9 +78,75 @@ namespace WindowsFormsApp19
         {
             int id_select = listBox1.SelectedIndex;
             MessageBox.Show(id_select.ToString());
-            plp[id_select].Vipis(textBox4.Text);
+            pat[id_select].Vipis(textBox4.Text);
             listBox1.Items.Clear();
             GetAllList(listBox1);
+
+        }
+        //Генерация случайных экземпляров класса
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //Инициализируем коллекцию экземпляров класса
+            pat = new List<Patient>();
+
+            // Получаем количество слов и букв за слово.
+            int num_letters = 7;
+            // Создаем массив букв, которые мы будем использовать.
+            char[] letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+            // Создаем генератор случайных чисел.
+            Random rand = new Random();
+            for (int y = 0; y <= rand.Next(7,15); y++)
+            {
+                // Сделайте ФИО.
+                string word = "";
+                for (int j = 1; j <= num_letters; j++)
+                {
+                    // Выбор случайного числа от 0 до 25
+                    // для выбора буквы из массива букв.
+                    int letter_num = rand.Next(0, letters.Length - 1);
+                    // Добавить письмо.
+                    word += letters[letter_num];
+                }
+                // Сделайте ДР.
+                string word1 = "";
+                for (int j = 1; j <= num_letters; j++)
+                {
+                    // Выбор случайного числа от 0 до 25
+                    // для выбора буквы из массива букв.
+                    int letter_num = rand.Next(0, letters.Length - 1);
+                    // Добавить письмо.
+                    word1 += letters[letter_num];
+                }
+                // Сделайте палату.
+                string word2 = rand.Next(10, 99).ToString();
+                for (int j = 1; j <= 1; j++)
+                {
+                    // Выбор случайного числа от 0 до 25
+                    // для выбора буквы из массива букв.
+                    int letter_num = rand.Next(0, letters.Length - 1);
+                    // Добавить письмо.
+                    word2 += letters[letter_num];
+                }
+                //Используя конструктор, вводим данные из textbox в поля экземплярра класса         
+                pat.Add(new Patient(word, word1, word2));
+                //Метод вывода добавленного экземпляра класса в ListBox
+                pat[i].GetInfo(listBox1);
+                //Увеличиваем счётчик на единицу, что бы использовать данную переменную как индекс массива экземпляра классов.
+                i++;
+            }
+        }
+        //Поиск пациента
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string name_search = textBox5.Text;
+
+            for(int y=0;y<= pat.Count; y++)
+            {
+                if (name_search == pat[y].fio)
+                {
+                    listBox1.SetSelected(y, true);
+                }
+            }
 
         }
     }

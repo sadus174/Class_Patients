@@ -41,6 +41,9 @@ namespace WindowsFormsApp19
             this.button3 = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -150,11 +153,41 @@ namespace WindowsFormsApp19
             this.label4.TabIndex = 10;
             this.label4.Text = "Дата выписки";
             // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(496, 84);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(146, 20);
+            this.textBox5.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(390, 88);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 16);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Имя пациента";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(393, 113);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(249, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "Поиск";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(654, 526);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button3);
@@ -169,6 +202,7 @@ namespace WindowsFormsApp19
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,6 +222,9 @@ namespace WindowsFormsApp19
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button4;
     }
 }
 
